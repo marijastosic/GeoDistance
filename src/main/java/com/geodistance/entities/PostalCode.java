@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * 
  * @author Marija
@@ -15,6 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "postcodelatlng")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class PostalCode implements Serializable {
 
 	private static final long serialVersionUID = -1679461334940644477L;
@@ -22,7 +25,7 @@ public class PostalCode implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "postcode")
 	private String postcode;
@@ -37,18 +40,18 @@ public class PostalCode implements Serializable {
 
 	}
 
-	public PostalCode(int id, String postcode, String latitude, String longitude) {
+	public PostalCode(Integer id, String postcode, String latitude, String longitude) {
 		this.id = id;
 		this.postcode = postcode;
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

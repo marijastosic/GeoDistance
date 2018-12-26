@@ -1,5 +1,7 @@
 package com.geodistance.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,5 +20,25 @@ public class PostalCodeServiceImpl implements PostalCodeService {
 	@Override
 	public PostalCode getByPostcode(String postcode) {
 		return postalCodeRepository.getByPostcode(postcode);
+	}
+
+	@Override
+	public List<PostalCode> getAllPostalCodes() {
+		return postalCodeRepository.findAll();
+	}
+
+	@Override
+	public PostalCode getById(Integer id) {
+		return postalCodeRepository.getOne(id);
+	}
+
+	@Override
+	public PostalCode save(PostalCode postalCode) {
+		return postalCodeRepository.save(postalCode);
+	}
+
+	@Override
+	public void delete(Integer id) {
+		postalCodeRepository.deleteById(id);
 	}
 }
