@@ -1,8 +1,9 @@
 package com.geodistance.rest.controller;
 
 import java.util.List;
-import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,13 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.geodistance.data.GeoDistanceResponse;
 import com.geodistance.entities.PostalCode;
 import com.geodistance.service.PostalCodeService;
-import com.geodistance.util.GeoDistanceUtil;
 
 @RestController
 @RequestMapping("/postalcodes")
@@ -28,6 +27,8 @@ public class PostalCodeRestController {
 	
 	@Autowired
 	private PostalCodeService postalCodeService;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(PostalCodeRestController.class);
 	
 	@GetMapping
 	public ResponseEntity<List<PostalCode>> getAllPostalCodes(){
@@ -79,21 +80,16 @@ public class PostalCodeRestController {
 		postalCodeService.delete(id);
 	}
 	
-//	@GetMapping("/{postcode1}/{postcode2}")
-//	public double getDistance(@PathVariable("postcode1") String postcode1, @PathVariable("postcode2") String postcode2) {
-//		PostalCode postalCode1 = postalCodeService.getByPostcode(postcode1);
-//		PostalCode postalCode2 = postalCodeService.getByPostcode(postcode2);
-//		
-//		return GeoDistanceUtil.calculateDistance(Double.valueOf(postalCode1.getLatitude()), Double.valueOf(postalCode1.getLongitude()), Double.valueOf(postalCode2.getLatitude()), Double.valueOf(postalCode2.getLongitude()));
-//	}
-	
 	@GetMapping("/{postcode1}/{postcode2}")
 	public GeoDistanceResponse getDistance(@PathVariable("postcode1") String postcode1, @PathVariable("postcode2") String postcode2) {
 		PostalCode postalCode1 = postalCodeService.getByPostcode(postcode1);
 		PostalCode postalCode2 = postalCodeService.getByPostcode(postcode2);
 				
-		GeoDistanceResponse response = new GeoDistanceResponse(postalCode1, postalCode2);
-				
+		GeoDistanceResponse response = new GeoDistanceResponse(postalCode1, postalCode2);	
+		
+		LOGGER.info("getDistance(): " + "postalCode1: " + postcode1 + ", postalCode2:" + postcode2 + ", distance: " + response.getDistance() + response.getUnit(), "");
+		
 		return response;
 	}
+
 }
