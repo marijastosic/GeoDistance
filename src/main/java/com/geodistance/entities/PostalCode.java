@@ -31,16 +31,16 @@ public class PostalCode implements Serializable {
 	private String postcode;
 
 	@Column(name = "latitude")
-	private String latitude;
+	private double latitude;
 
 	@Column(name = "longitude")
-	private String longitude;
+	private double longitude;
 
 	public PostalCode() {
 
 	}
 
-	public PostalCode(Integer id, String postcode, String latitude, String longitude) {
+	public PostalCode(Integer id, String postcode, double latitude, double longitude) {
 		this.id = id;
 		this.postcode = postcode;
 		this.latitude = latitude;
@@ -63,19 +63,19 @@ public class PostalCode implements Serializable {
 		this.postcode = postcode;
 	}
 
-	public String getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(String latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
-	public String getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(String longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
