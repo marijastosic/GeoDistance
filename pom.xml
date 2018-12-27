@@ -11,7 +11,7 @@
 	<groupId>com.geodistance</groupId>
 	<artifactId>GeoDistance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>GeoDistance</name>
 	<description>Spring Boot application for calculating distance between two postal codes in UK.</description>
 

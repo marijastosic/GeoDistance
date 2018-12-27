@@ -1,5 +1,10 @@
 package com.geodistance.util;
 
+/**
+ * Util class with method for calculating distance by given parameters.
+ * @author Marija
+ *
+ */
 public class GeoDistanceUtil {
 	
 	private final static double EARTH_RADIUS = 6371; // radius in kilometers

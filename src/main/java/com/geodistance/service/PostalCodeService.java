@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.geodistance.entities.PostalCode;
 
+/**
+ * Interface with all necessary methods for comunicating with database.
+ * @author Marija
+ *
+ */
 public interface PostalCodeService {
 
 	public PostalCode getByPostcode(String postcode);

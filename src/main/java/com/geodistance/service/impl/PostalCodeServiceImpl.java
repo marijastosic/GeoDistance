@@ -10,6 +10,11 @@ import com.geodistance.entities.PostalCode;
 import com.geodistance.repository.PostalCodeRepository;
 import com.geodistance.service.PostalCodeService;
 
+/**
+ * Imlementation class for PostalCodeService interface.
+ * @author Marija
+ *
+ */
 @Transactional
 @Service
 public class PostalCodeServiceImpl implements PostalCodeService {

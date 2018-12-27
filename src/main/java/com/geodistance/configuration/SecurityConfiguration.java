@@ -12,6 +12,9 @@ import org.springframework.web.filter.CommonsRequestLoggingFilter;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+	/**
+	 * Allowing only authenticated users to call services.
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
@@ -34,6 +37,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.disable();
 	}
 	
+	/**
+	 * Logs information about user and time when service is called, before and after executing.
+	 */
 	@Bean
 	public CommonsRequestLoggingFilter requestLoggingFilter() {
 	    CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();

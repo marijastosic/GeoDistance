@@ -4,6 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.geodistance.entities.PostalCode;
 import com.geodistance.util.GeoDistanceUtil;
 
+/**
+ * Data class for returning response from service.
+ * @author Marija
+ *
+ */
 public class GeoDistanceResponse {
 	@JsonIgnoreProperties("id")
 	private PostalCode postalCode1;

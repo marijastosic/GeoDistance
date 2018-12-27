@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * 
+ * Entity class for mapping PostalCode.
  * @author Marija
  *
  */

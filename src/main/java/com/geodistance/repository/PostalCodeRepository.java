@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.geodistance.entities.PostalCode;
 
+/**
+ * Repository interface, which extends JpaRepository.
+ * @author Marija
+ *
+ */
 @Repository
 public interface PostalCodeRepository extends JpaRepository<PostalCode, Integer> {
 
